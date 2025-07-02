@@ -41,11 +41,6 @@ sha256-fpga-accelerator/
 ### Build Instructions
 
 1. Clone the repo:
-```bash
-git clone https://github.com/<your-username>/sha256-fpga-accelerator.git
-cd sha256-fpga-accelerator
-```
-
 2. Open Vivado and load the project from `synth/`
 3. Compile and program the bitstream to the FPGA
 4. Build and flash `sha256.c` to RISC-V target using SEGGER Embedded Studio
