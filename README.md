@@ -22,7 +22,6 @@ This project implements a hardware accelerator for the SHA256 cryptographic algo
 sha256-fpga-accelerator/
 ├── rtl/              # accelerator.sv, accelerator_regs.sv, accelerator_top.sv
 ├── sw/               # sha256.c (modified software interface)
-├── synth/            # Vivado project files and reports
 ├── docs/             # Diagrams, memory map, performance charts
 └── README.md         # This file
 ```
@@ -37,13 +36,6 @@ sha256-fpga-accelerator/
 - SEGGER Embedded Studio for RISC-V
 - Digilent Nexys A7-100T
 - C toolchain with RISC-V support
-
-### Build Instructions
-
-1. Clone the repo:
-2. Open Vivado and load the project from `synth/`
-3. Compile and program the bitstream to the FPGA
-4. Build and flash `sha256.c` to RISC-V target using SEGGER Embedded Studio
 
 ---
 
