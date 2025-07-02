@@ -54,3 +54,4 @@ sha256-fpga-accelerator/
 - **accelerator_regs.sv:** Memory-mapped interface with control and data registers
 - **accelerator_top.sv:** Integration and control FSM
 - **sha256.c:** Modified software SHA256 function to use hardware acceleration
+- Note: accelerator_wb.sv is provided by the hackathon; rest of the RTL (accelerator.sv, accelerator_regs.sv, top-level FSM) was modified by us.
