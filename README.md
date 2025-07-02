@@ -1,1 +1,69 @@
-# sha256-fpga-accelerator
+
+# SHA256 FPGA Accelerator
+
+This project implements a hardware accelerator for the SHA256 cryptographic algorithm on an FPGA, integrated with a RISC-V processor using memory-mapped I/O. It offloads the computationally intensive `SHA256Transform()` function from software to hardware, achieving a **2.6× performance improvement**.
+
+---
+
+## 🚀 Features
+
+- Hardware acceleration of SHA256 core compression loop
+- Integrated via memory-mapped I/O with a RISC-V system
+- 64-round parallel SHA256 implementation in SystemVerilog
+- Synchronization using FSM and memory-mapped control/status flags
+- Minimal software modification: SHA256Init, SHA256Update, SHA256Final interface unchanged
+- Tested on Digilent Nexys A7-100T (Artix-7 FPGA) with SEGGER Embedded Studio
+
+---
+
+## 📁 Repository Structure
+
+```
+sha256-fpga-accelerator/
+├── rtl/              # accelerator.sv, accelerator_regs.sv, accelerator_top.sv
+├── sw/               # sha256.c (modified software interface)
+├── synth/            # Vivado project files and reports
+├── docs/             # Diagrams, memory map, performance charts
+└── README.md         # This file
+```
+
+---
+
+## 💻 Running the Project
+
+### Requirements
+
+- Vivado 2023.2 or later
+- SEGGER Embedded Studio for RISC-V
+- Digilent Nexys A7-100T
+- C toolchain with RISC-V support
+
+### Build Instructions
+
+1. Clone the repo:
+```bash
+git clone https://github.com/<your-username>/sha256-fpga-accelerator.git
+cd sha256-fpga-accelerator
+```
+
+2. Open Vivado and load the project from `synth/`
+3. Compile and program the bitstream to the FPGA
+4. Build and flash `sha256.c` to RISC-V target using SEGGER Embedded Studio
+
+---
+
+## 📊 Performance
+
+- **Cycles to hash 20 strings:** 817,193
+- **Average per hash:** ~40,860 cycles
+- **Speedup vs software:** 2.6×
+- **Correctness:** Matched software output on all test cases
+
+---
+
+## 📐 Design Details
+
+- **accelerator.sv:** SHA256Transform rounds, message scheduler, compression logic
+- **accelerator_regs.sv:** Memory-mapped interface with control and data registers
+- **accelerator_top.sv:** Integration and control FSM
+- **sha256.c:** Modified software SHA256 function to use hardware acceleration
