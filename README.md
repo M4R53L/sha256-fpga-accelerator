@@ -23,6 +23,7 @@ sha256-fpga-accelerator/
 ├── rtl/              # accelerator.sv, accelerator_regs.sv, accelerator_top.sv
 ├── sw/               # sha256.c (modified software interface)
 ├── docs/             # Diagrams, memory map, performance charts
+├── sim/              # Testbench + Waveform
 ├── synth/            # Resource + Timing Reports
 └── README.md         # This file
 ```
